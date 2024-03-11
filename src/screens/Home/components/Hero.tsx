@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
+import DropDownMenu from "@/components/DropDownMenu";
 import { UserRound } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -17,18 +16,7 @@ const Hero = () => {
           Hare Krsna
         </div>
       </div>
-      <div>
-        <Link to="/portal/login">
-          <Button className="mt-6 mr-2" size="lg" variant="outline">
-            Login
-          </Button>
-        </Link>
-        <Link to="/portal/register">
-          <Button className="mt-6 mr-2" size="lg">
-            Register
-          </Button>
-        </Link>
-      </div>
+      <DropDownMenu />
     </div>
   );
 };
