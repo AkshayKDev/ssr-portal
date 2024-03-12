@@ -1,14 +1,14 @@
-import Navbar from "@/screens/Home/components/Navbar";
-import Hero from "./components/Hero";
-import Buttons from "./components/Buttons";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
 
 const kartikParikrama = () => {
   return (
-    <div>
-      <Navbar />
-      <main className="bg-slate-100 pt-30 min-h-screen flex flex-col justify-center items-center">
-        <Hero />
-        <Buttons />
+    <div className="h-full relative">
+      <div className="hidden h-full md:flex md:w-80 md:flex-col md:fixed md:inset-y-0 z-[80] bg-gray-900">
+        <Sidebar />
+      </div>
+      <main className="md:pl-80">
+        <Navbar />
       </main>
     </div>
   );

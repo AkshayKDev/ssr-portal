@@ -21,19 +21,19 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/portal/sadhu-sanga-2023",
+    path: "/sadhu-sanga-2023",
     element: <SadhuSanga />,
   },
   {
-    path: "/portal/us-sadhu-sanga-2024",
+    path: "/us-sadhu-sanga-2024",
     element: <UsSadhuSanga />,
   },
   {
-    path: "/portal/mexico-sadhu-sanga-2023",
+    path: "/mexico-sadhu-sanga-2023",
     element: <MexicoSadhuSanga />,
   },
   {
-    path: "/portal/kartik-parikrama-2023",
+    path: "/kartik-parikrama-2023",
     element: <KartikParikrama />,
   },
   {
