@@ -36,6 +36,10 @@ const router = createBrowserRouter([
     path: "/portal/kartik-parikrama-2023",
     element: <KartikParikrama />,
   },
+  {
+    path: "/home",
+    element: <h1>Hello</h1>,
+  },
 ]);
 
 export default router;
