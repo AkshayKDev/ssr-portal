@@ -1,5 +1,5 @@
 import MobileNav from "./MobileNav";
-import Prabhupad from "../../../../assets/prabhupad.png";
+import Prabhupad from "../../../assets/prabhupad.png";
 
 const Navbar = () => {
   return (
