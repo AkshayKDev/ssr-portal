@@ -6,9 +6,33 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
+import { useEffect, useState } from "react";
+import axios from "axios";
 // import { Link } from "react-router-dom";
 
 const DropDownMenu = () => {
+  const [data, setData] = useState(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        "http://p401.network.sadhu-sanga.appspot.com/getEventsList?apiVersion=2.9"
+      );
+      setData(response.data);
+      console.log(response.data);
+      // setLoading(false);
+    } catch (error) {
+      // setError(error);
+      // setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>

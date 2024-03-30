@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
-import Search from "./components/Search";
 import Sidebar from "./components/Sidebar";
+import DahboardHeroSection from "./components/DahboardHeroSection";
 
 const Dashboard = () => {
   return (
@@ -10,7 +10,7 @@ const Dashboard = () => {
       </div>
       <main className="md:pl-80 bg-slate-100 min-h-screen">
         <Navbar />
-        <Search />
+        <DahboardHeroSection />
       </main>
     </div>
   );
