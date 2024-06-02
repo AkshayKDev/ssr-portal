@@ -8,54 +8,36 @@ import {
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import { Link } from "react-router-dom";
 
-const DropDownMenu = () => {
-  const [data, setData] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
+interface Event {
+  eventId: string;
+  eventName: string;
+}
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        "http://p401.network.sadhu-sanga.appspot.com/getEventsList?apiVersion=2.9"
-      );
-      setData(response.data);
-      console.log(response.data);
-      // setLoading(false);
-    } catch (error) {
-      // setError(error);
-      // setLoading(false);
-    }
-  };
+const DropDownMenu: React.FC = () => {
+  const [events, setEvents] = useState<Event[]>([]);
 
   useEffect(() => {
-    fetchData();
+    axios
+      .get(
+        "http://p401.network.sadhu-sanga.appspot.com/getEventsList?apiVersion=2.9"
+      )
+      .then((response) => setEvents(response.data.eventsList))
+      .catch((error) => console.log(error));
   }, []);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Button className="mt-2 w-full px-8 outline-none focus-visible:ring-1">
-          Select Event
-        </Button>
+        <Button className="w-full px-8">Select Event</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        {/* <Link to="/us-sadhu-sanga-2024"> */}
-        <DropdownMenuItem>US Sadhu Sanga Retreat 2024</DropdownMenuItem>
-        {/* </Link> */}
-        <DropdownMenuSeparator />
-        {/* <Link to="/mexico-sadhu-sanga-2023"> */}
-        <DropdownMenuItem>Mexico Sadhu Sanga Retreat 2023</DropdownMenuItem>
-        {/* </Link> */}
-        <DropdownMenuSeparator />
-        {/* <Link to="/sadhu-sanga-2023"> */}
-        <DropdownMenuItem>Sadhu Sanga Retreat 2023</DropdownMenuItem>
-        {/* </Link> */}
-        <DropdownMenuSeparator />
-        {/* <Link to="/kartik-parikrama-2023"> */}
-        <DropdownMenuItem>Kartik Parikrama 2023</DropdownMenuItem>
-        {/* </Link> */}
+        {events.map((event) => (
+          <div key={event.eventId}>
+            <DropdownMenuItem>{event.eventName}</DropdownMenuItem>
+            <DropdownMenuSeparator />
+          </div>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
