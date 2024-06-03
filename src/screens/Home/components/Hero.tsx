@@ -1,7 +1,26 @@
 import DropDownMenu from "@/components/DropDownMenu";
+import axios from "axios";
 import { UserRound } from "lucide-react";
+import { useEffect, useState } from "react";
+
+interface Event {
+  eventId: string;
+  eventName: string;
+}
 
 const Hero = () => {
+  const [events, setEvents] = useState<Event[]>([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "http://p401.network.sadhu-sanga.appspot.com/getEventsList?apiVersion=2.9"
+      )
+      .then((response) => setEvents(response.data.eventsList))
+      .catch((error) => console.log(error));
+    console.log(events);
+  }, []);
+
   return (
     <div className="flex items-center justify-center flex-col">
       <div className="flex items-center justify-center flex-col">
@@ -16,7 +35,7 @@ const Hero = () => {
           Hare Krsna
         </div>
       </div>
-      <DropDownMenu />
+      <DropDownMenu events={events} />
     </div>
   );
 };

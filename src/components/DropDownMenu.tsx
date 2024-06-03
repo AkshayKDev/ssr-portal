@@ -6,25 +6,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-interface Event {
-  eventId: string;
-  eventName: string;
+interface eventProps {
+  events: {
+    eventId: string;
+    eventName: string;
+  }[];
 }
 
-const DropDownMenu: React.FC = () => {
-  const [events, setEvents] = useState<Event[]>([]);
+const DropDownMenu: React.FC<eventProps> = ({ events }) => {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get(
-        "http://p401.network.sadhu-sanga.appspot.com/getEventsList?apiVersion=2.9"
-      )
-      .then((response) => setEvents(response.data.eventsList))
-      .catch((error) => console.log(error));
-  }, []);
+  const handleEventSelect = (eventId: string) => {
+    navigate(`/dashboard/${eventId}`);
+  };
 
   return (
     <DropdownMenu>
@@ -34,7 +31,9 @@ const DropDownMenu: React.FC = () => {
       <DropdownMenuContent>
         {events.map((event) => (
           <div key={event.eventId}>
-            <DropdownMenuItem>{event.eventName}</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleEventSelect(event.eventId)}>
+              {event.eventName}
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
           </div>
         ))}
