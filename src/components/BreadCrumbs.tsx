@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Link, useLocation } from "react-router-dom";
 import { Fragment } from "react";
+import { FaHome } from "react-icons/fa";
 
 const BreadCrumbs = () => {
   const location = useLocation();
@@ -15,8 +16,10 @@ const BreadCrumbs = () => {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link to="/">Home</Link>
+          <BreadcrumbLink asChild className="flex items-center">
+            <Link to="/">
+              <FaHome className="mr-1" /> Home
+            </Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />

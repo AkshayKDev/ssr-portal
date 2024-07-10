@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Logo from "../../../assets/logo.png";
 import {
   LayoutDashboard,
@@ -11,52 +11,54 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const routes = [
-  {
-    label: "Admin Home",
-    icon: HomeIcon,
-    href: "/kartik-parikrama-2023/admin-home",
-    color: "text-sky-500",
-  },
-  {
-    label: "Admin Register",
-    icon: Plus,
-    href: "/kartik-parikrama-2023/admin-register",
-    color: "text-violet-500",
-  },
-  {
-    label: "Process Payments",
-    icon: WalletCards,
-    href: "/kartik-parikrama-2023/process-payments",
-    color: "text-pink-700",
-  },
-  {
-    label: "Offsite Allocations",
-    icon: LayoutDashboard,
-    href: "/kartik-parikrama-2023/offsite-allocations",
-    color: "text-blue-700",
-  },
-  {
-    label: "Mailing List Homes",
-    icon: Mail,
-    href: "/kartik-parikrama-2023/mailing-list-homes",
-    color: "text-red-500",
-  },
-  {
-    label: "View Sponsors",
-    icon: User,
-    href: "/kartik-parikrama-2023/view-sponsors",
-    color: "text-green-500",
-  },
-  {
-    label: "Add New Sponsor",
-    icon: UserPlus,
-    href: "/kartik-parikrama-2023/add-new-sponsor",
-    color: "text-white-500",
-  },
-];
-
 const Sidebar = () => {
+  const { eventId } = useParams<{ eventId: string }>();
+
+  const routes = [
+    {
+      label: "Admin Home",
+      icon: HomeIcon,
+      href: `/${eventId}/admin-home`,
+      color: "text-sky-500",
+    },
+    {
+      label: "Admin Register",
+      icon: Plus,
+      href: `/${eventId}/admin-register`,
+      color: "text-violet-500",
+    },
+    {
+      label: "Process Payments",
+      icon: WalletCards,
+      href: `/${eventId}/process-payments`,
+      color: "text-pink-700",
+    },
+    {
+      label: "Offsite Allocations",
+      icon: LayoutDashboard,
+      href: `/${eventId}/offsite-allocations`,
+      color: "text-blue-700",
+    },
+    {
+      label: "Mailing List Homes",
+      icon: Mail,
+      href: `/${eventId}/mailing-list-homes`,
+      color: "text-red-500",
+    },
+    {
+      label: "View Sponsors",
+      icon: User,
+      href: `/${eventId}/view-sponsors`,
+      color: "text-green-500",
+    },
+    {
+      label: "Add New Sponsor",
+      icon: UserPlus,
+      href: `/${eventId}/add-new-sponsor`,
+      color: "text-white-500",
+    },
+  ];
+
   return (
     <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
       <div className="px-3 py-2 flex-1">
