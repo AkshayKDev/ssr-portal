@@ -31,7 +31,7 @@ const DropDownMenu: React.FC<eventProps> = ({ events }) => {
       <DropdownMenuContent>
         {events.map((event) => (
           <div key={event.eventId}>
-            <DropdownMenuItem onClick={() => handleEventSelect(event.eventId)}>
+            <DropdownMenuItem className="cursor-pointer" onClick={() => handleEventSelect(event.eventId)}>
               {event.eventName}
             </DropdownMenuItem>
             <DropdownMenuSeparator />

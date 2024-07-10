@@ -19,8 +19,8 @@ const DahboardHeroSection = () => {
           src={dashboardBanner}
           alt="dashboard-banner"
         />
-        <div className="flex items-center w-full px-4 md:px-20 lg:px-32 space-y-4">
-          <Search className="h-6 w-6 mr-1 mt-3" />
+        <div className="flex items-center px-4 md:px-20 lg:px-32 space-y-4 w-10/12">
+          <Search className="h-6 w-6 mr-2 mt-4" />
           <Input type="text" placeholder="Search..." className="border-none" />
         </div>
       </div>
