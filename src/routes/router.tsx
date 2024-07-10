@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/dashboard/:eventId",
+    path: "/:eventId",
     element: <Dashboard />,
   },
 ]);

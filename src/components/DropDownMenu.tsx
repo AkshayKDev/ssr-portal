@@ -20,7 +20,7 @@ const DropDownMenu: React.FC<eventProps> = ({ events }) => {
   const navigate = useNavigate();
 
   const handleEventSelect = (eventId: string) => {
-    navigate(`/dashboard/${eventId}`);
+    navigate(`/${eventId}`);
   };
 
   return (
