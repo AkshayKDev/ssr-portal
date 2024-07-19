@@ -21,6 +21,34 @@ const router = createBrowserRouter([
     path: "/:eventId",
     element: <Dashboard />,
   },
+  {
+    path: "/:eventId/admin-home",
+    element: <h1>Hello</h1>,
+  },
+  {
+    path: "/:eventId/admin-register",
+    element: <h1>Hello</h1>,
+  },
+  {
+    path: "/:eventId/process-payments",
+    element: <h1>Hello</h1>,
+  },
+  {
+    path: "/:eventId/offsite-allocations",
+    element: <h1>Hello</h1>,
+  },
+  {
+    path: "/:eventId/mailing-list-homes",
+    element: <h1>Hello</h1>,
+  },
+  {
+    path: "/:eventId/view-sponsors",
+    element: <h1>Hello</h1>,
+  },
+  {
+    path: "/:eventId/add-new-sponsor",
+    element: <h1>Hello</h1>,
+  },
 ]);
 
 export default router;
