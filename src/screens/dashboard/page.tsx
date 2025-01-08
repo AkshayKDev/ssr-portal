@@ -15,7 +15,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        "http://p401.network.sadhu-sanga.appspot.com/getEventsList?apiVersion=2.9"
+        "http://p402.network.sadhu-sanga.appspot.com/getEventsList?apiVersion=2.9"
       )
       .then((response) => {
         setEvents(response.data.eventsList);
